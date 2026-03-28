@@ -198,7 +198,7 @@ body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%
     <div class="header"><h1>集點大作戰</h1><div class="sub">✨ 每顆星星都是努力的證明 ✨</div></div>
     <div class="date-bar" id="dateBar"></div>
     <div class="child-card kyrie">
-      <div class="ch"><div class="cn"><div class="av">🦁</div>Kyrie</div><div class="sc"><span class="si">⭐</span><span id="kStars">0</span></div></div>
+      <div class="ch"><div class="cn"><div class="av">🐒</div>Kyrie</div><div class="sc"><span class="si">⭐</span><span id="kStars">0</span></div></div>
       <div class="sv" id="kVis"></div>
       <div class="acts">
         <button class="btn ba" onclick="openModal('kyrie','add')">＋ 加星星</button>
@@ -206,7 +206,7 @@ body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%
       </div>
     </div>
     <div class="child-card nella">
-      <div class="ch"><div class="cn"><div class="av">🦊</div>Nella</div><div class="sc"><span class="si">⭐</span><span id="nStars">0</span></div></div>
+      <div class="ch"><div class="cn"><div class="av">🦄</div>Nella</div><div class="sc"><span class="si">⭐</span><span id="nStars">0</span></div></div>
       <div class="sv" id="nVis"></div>
       <div class="acts">
         <button class="btn ba" onclick="openModal('nella','add')">＋ 加星星</button>
@@ -223,8 +223,8 @@ body::before{content:'';position:fixed;top:-50%;left:-50%;width:200%;height:200%
     <div class="ts"><span class="ti" id="trophyIcon">🏆</span><span class="ltx" id="leadText"></span></div>
     <div id="boardCards"></div>
     <div class="ps">
-      <div class="pr"><div class="pl"><span>🦁 Kyrie</span><span id="kPct">0%</span></div><div class="pbg"><div class="pf kyrie" id="kBar" style="width:0%"></div></div></div>
-      <div class="pr"><div class="pl"><span>🦊 Nella</span><span id="nPct">0%</span></div><div class="pbg"><div class="pf nella" id="nBar" style="width:0%"></div></div></div>
+      <div class="pr"><div class="pl"><span>🐒 Kyrie</span><span id="kPct">0%</span></div><div class="pbg"><div class="pf kyrie" id="kBar" style="width:0%"></div></div></div>
+      <div class="pr"><div class="pl"><span>🦄 Nella</span><span id="nPct">0%</span></div><div class="pbg"><div class="pf nella" id="nBar" style="width:0%"></div></div></div>
     </div>
     <div class="sd"><div class="dl">兩人差距</div><div class="dv" id="diffVal">0 ⭐</div></div>
   </div>
@@ -364,12 +364,12 @@ function rBoard(){
   const k=D.children.kyrie.stars,n=D.children.nella.stars,mx=Math.max(k,n,1);
   const kp=Math.round(k/mx*100),np=Math.round(n/mx*100);
   const el=document.getElementById('leadText');
-  if(k>n)el.textContent='🦁 Kyrie 目前領先！';
-  else if(n>k)el.textContent='🦊 Nella 目前領先！';
+  if(k>n)el.textContent='🐒 Kyrie 目前領先！';
+  else if(n>k)el.textContent='🦄 Nella 目前領先！';
   else if(k===0)el.textContent='加油收集更多星星吧！';
   else el.textContent='🤝 目前平手！兩個都很棒！';
   document.getElementById('trophyIcon').textContent=k===n?'🤝':'🏆';
-  let f={name:'Kyrie',e:'🦁',s:k},s={name:'Nella',e:'🦊',s:n};
+  let f={name:'Kyrie',e:'🐒',s:k},s={name:'Nella',e:'🦄',s:n};
   if(n>k)[f,s]=[s,f];
   document.getElementById('boardCards').innerHTML=`<div class="lc f1"><div class="lr">🥇</div><div class="la">${f.e}</div><div class="ln">${f.name}</div><div class="ls">${f.s} ⭐</div><div class="lsl">累積星星</div></div><div class="vsd">V S</div><div class="lc f2"><div class="lr">🥈</div><div class="la">${s.e}</div><div class="ln">${s.name}</div><div class="ls">${s.s} ⭐</div><div class="lsl">累積星星</div></div>`;
   document.getElementById('kBar').style.width=kp+'%';document.getElementById('nBar').style.width=np+'%';
